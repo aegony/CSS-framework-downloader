@@ -1,5 +1,5 @@
 #!/bin/bash
-# frontend CSS framework downloader
+# CSS framework downloader
 
 clear
 title1="---------------------------------------"
@@ -11,86 +11,36 @@ echo "$title1"
 echo "$title2"
 echo "$title3"
 
+while true
+do
+
 prompt=":: Please choose which CSS framework you wish to download >> "
 
 PS3="$prompt"
 
-cdn=":: CDN Sources ::"
-cdnsource="Please use one of CDN sources above."
-downpack="!!! Downloading complete !!!"
-dont="Sorry i don't understand. Please type yes or no."
+# variables
 question="Would you like to download? yes/no"
+cdn_source=":: CDN Sources ::"
+use_source="Please use one of CDN sources above."
+down_complete="!!! Downloading complete !!!"
+wrong_answer="Sorry i don't understand. Please type yes or no."
+exit_key="Press ENTER for exit"
 
+# select options menu
 options=("Bootstrap 4" "Semantic UI" "Foundation" "Materialize CSS" "Pure CSS" "Skeleton" "UI Kit" "Milligram" "Susy" "Bulma" "MiniCSS" "Kube" "Picnic" "Spectre" "Quit")
 echo
 select opt in "${options[@]}"
 do
 	case $opt in
 		"Bootstrap 4")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">"
-			echo "<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"</script>"
-			echo
-			echo "Complete Javascript Bundle"
-			echo "<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Bootstrap 4.0.0 is downloading ..."
-				echo
-				wget -c https://github.com/twbs/bootstrap/archive/v4.0.0.zip
-				mv v4.0.0.zip bootstrap-v4.0.0.zip
-				unzip bootstrap-v4.0.0.zip
-				rm -R bootstrap-v4.0.0.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://getbootstrap.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/bootstrap.sh" ]] && source "./frameworks/bootstrap.sh"
+			exec "./frameworks/bootstrap.sh"
+			break
 			;;
 		"Semantic UI")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />"
-			echo
-			echo "<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Semantic UI is downloading ..."
-				echo
-				wget -c https://github.com/Semantic-Org/Semantic-UI-CSS/archive/master.zip
-				mv master.zip semantic-ui.zip
-				unzip semantic-ui.zip
-				rm -R semantic-ui.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://semantic-ui.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/semantic-ui.sh" ]] && source "./frameworks/semantic-ui.sh"
+			exec "./frameworks/semantic-ui.sh"
+			break
 			;;
 		"Foundation")
 			echo
@@ -441,8 +391,9 @@ do
 			fi
 			;;
 		"Quit")
-			break
+			exit
 			;;
 		*) echo "invalid option $REPLY";;
 	esac
+done
 done

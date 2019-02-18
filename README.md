@@ -2,7 +2,7 @@
 
 You can choose between using CDN of your favourite framework or choose to clone, download & unpack
 
-### Framework included:
+### Frameworks included:
 
 1. Bootstrap 4
 2. Semantic UI
