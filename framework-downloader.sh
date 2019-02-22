@@ -43,156 +43,25 @@ do
 			break
 			;;
 		"Foundation")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css" integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg==" crossorigin="anonymous">"
-			echo
-			echo "<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js" integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw==" crossorigin="anonymous"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Foundation CSS is downloading ..."
-				echo
-				wget -c https://foundation.zurb.com/sites/download.html/complete
-				mv complete foundation-6.5.1-complete.zip
-				unzip foundation-6.5.1-complete.zip -d foundation-6.5.1
-				rm -R foundation-6.5.1-complete.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://foundation.zurb.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/foundation.sh" ]] && source "./frameworks/foundation.sh"
+			exec "./frameworks/foundation.sh"
+			break
 			;;
 		"Materialize CSS")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">"
-			echo
-			echo "<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "MetarializeCSS is downloading ..."
-				echo
-				wget https://github.com/Dogfalo/materialize/releases/download/1.0.0/materialize-v1.0.0.zip
-				unzip materialize-v1.0.0.zip
-				rm -R materialize-v1.0.0.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://materializecss.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/materializecss.sh" ]] && source "./frameworks/materializecss.sh"
+			exec "./frameworks/materializecss.sh"
 			;;
 		"Pure CSS")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Pure CSS is downloading ..."
-				echo
-				wget -c https://github.com/pure-css/pure-release/archive/v1.0.0.zip
-				mv v1.0.0.zip pure-css-start.zip
-				unzip pure-css-start.zip
-				rm -R pure-css-start.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://purecss.io
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/purecss.sh" ]] && source "./frameworks/purecss.sh"
+			exec "./frameworks/purecss.sh"
 			;;
 		"Skeleton")
-			echo
-			echo "$cdn"
-			echo "<script src="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Skeleton is downloading ..."
-				echo
-				wget -c https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip
-				unzip Skeleton-2.0.4.zip
-				rm -R Skeleton-2.0.4.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open http://getskeleton.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/skeleton.sh" ]] && source "./frameworks/skeleton.sh"
+			exec "./frameworks/skeleton.sh"
 			;;
 		"UI Kit")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css">"
-			echo
-			echo "<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>"
-			echo "<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "UI Kit is downloading ..."
-				echo
-				git clone git://github.com/uikit/uikit.git
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://getuikit.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/uikit.sh" ]] && source "./frameworks/uikit.sh"
+			exec "./frameworks/uikit.sh"
 			;;
 		"Milligram")
 			echo

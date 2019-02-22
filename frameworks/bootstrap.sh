@@ -6,6 +6,7 @@ function download() {
 	mv v4.0.0.zip bootstrap-v4.0.0.zip
 	unzip bootstrap-v4.0.0.zip
 	rm -R bootstrap-v4.0.0.zip
+	cd bootstrap-4.0.0
 	open .
 }
 

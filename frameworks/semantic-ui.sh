@@ -34,11 +34,11 @@ if [ "$answer" = "yes" ]; then
 	elif [ "$answer" = "no" ]; then
 		echo "$cdn_source"
 		echo "$css_link"
-		echo
 		echo "$java_link"
 		echo
 		echo "$use_source"
 		break
 	else
 		echo "$wrong_answer"
+		break
 	fi
