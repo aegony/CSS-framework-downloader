@@ -24,14 +24,15 @@ if [ "$answer" = "yes" ]; then
 		echo "Skeleton 2.0.4 is downloading ..."
 		echo
 		download
+		echo
 		echo "$down_complete"
 		echo
 		open http://getskeleton.com
 		break
 	fi
 	elif [ "$answer" = "no" ]; then
-		echo "$cdnsource"
-		echo "$java_link"
+		echo "$cdn_source"
+		echo "$css_link"
 		echo
 		echo "$use_source"
 		break

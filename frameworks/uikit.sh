@@ -30,7 +30,7 @@ if [ "$answer" = "yes" ]; then
 		break
 	fi
 	elif [ "$answer" = "no" ]; then
-		echo "$cdnsource"
+		echo "$cdn_source"
 		echo "$css_link"
 		echo "$java_link"
 		echo "$java_link2"

@@ -64,200 +64,32 @@ do
 			exec "./frameworks/uikit.sh"
 			;;
 		"Milligram")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" />"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Milligram is downloading ..."
-				echo
-				wget https://github.com/milligram/milligram/archive/v1.3.0.zip
-				mv v1.3.0.zip milligram-v1.3.0.zip
-				unzip milligram-v1.3.0.zip
-				rm -R milligram-v1.3.0.zip
-				open .
-				echo
-				echo "$downpack"
-				echo 
-				open https://milligram.io
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/milligram.sh" ]] && source "./frameworks/milligram.sh"
+			exec "./frameworks/milligram.sh"
 			;;
 		"Susy")
-			echo
-			echo "$cdn"
-			echo "dunno why there is no CDN"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Susy is downloading ..."
-				echo
-				git clone git@github.com:oddbird/susy.git
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://oddbird.net/susy/
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/susy.sh" ]] && source "./frameworks/susy.sh"
+			exec "./frameworks/susy.sh"
 			;;
 		"Bulma")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Bulme v0.7.4 is downaloading ..."
-				echo
-				wget -c https://github.com/jgthms/bulma/releases/download/0.7.4/bulma-0.7.4.zip
-				unzip bulma-0.7.4.zip
-				rm -R bulma-0.7.4.zip
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://bulma.io
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/bulma.sh" ]] && source "./frameworks/bulma.sh"
+			exec "./frameworks/bulma.sh"
 			;;
 		"MiniCSS")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css" />"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-nord.min.css" />"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-dark.min.css" />"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "MiniCSS is downloading ..."
-				echo
-				git clone git@github.com:Chalarangelo/mini.css.git
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://minicss.org
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/minicss.sh" ]] && source "./frameworks/minicss.sh"
+			exec "./frameworks/minicss.sh"
 			;;
 		"Kube")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kube/6.5.2/css/kube.min.css" />"
-			echo
-			echo "<script src="https://cdnjs.cloudflare.com/ajax/libs/kube/6.5.2/js/kube.min.js"></script>"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Kube is downloading ..."
-				echo
-				git clone git@github.com:imperavi/kubeframework.git
-				open .
-				echo
-				echo "$downpack"
-				echo
-				open https://imperavi.com/kube/
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/kube.sh" ]] && source "./frameworks/kube.sh"
+			exec "./frameworks/kube.sh"
 			;;
 		"Picnic")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://unpkg.com/picnic@6.5.0/picnic.min.css" />"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Picnic is downloading ..."
-				echo
-				git clone git@github.com:franciscop/picnic.git
-				open .
-				echo "$downpack"
-				echo
-				open https://picnicss.com
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/picnic.sh" ]] && source "./frameworks/picnic.sh"
+			exec "./frameworks/picnic.sh"
 			;;
 		"Spectre")
-			echo
-			echo "$cdn"
-			echo "<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">"
-			echo
-			echo "$question"
-			read answer
-			if [ "$answer" = "yes" ];
-			then
-				echo
-				echo "Spectre is downloading ..."
-				echo
-				git clone git@github.com:picturepan2/spectre.git
-				open .
-				echo "$downpack"
-				echo
-				open https://picturepan2.github.io/spectre/
-			elif [ "$answer" = "no" ]; then
-				echo
-				echo "$cdnsource"
-				echo
-			else
-				echo "$dont"
-				exit 1
-			fi
+			[[ -s "./frameworks/spectre.sh" ]] && source "./frameworks/spectre.sh"
+			exec "./frameworks/spectre.sh"
 			;;
 		"Quit")
 			exit
